@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.8.0;
+pragma solidity ^0.4.17;
 
 contract CampaignFactory {
     address[] public deployedCampaigns;
@@ -35,11 +34,10 @@ contract Campaign {
         _;
     }
 
-    constructor (uint minimum, address creator) public {
+    function Campaign(uint minimum, address creator) public {
         manager = creator;
         minimumContribution = minimum;
     }
-
 
     function contribute() public payable {
         require(msg.value > minimumContribution);
@@ -85,7 +83,7 @@ contract Campaign {
       ) {
         return (
           minimumContribution,
-          address(this).balance,
+          this.balance,
           requests.length,
           approversCount,
           manager
