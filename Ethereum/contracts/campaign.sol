@@ -1,4 +1,5 @@
-pragma solidity ^0.4.17;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.8.0;
 
 contract CampaignFactory {
     address[] public deployedCampaigns;
